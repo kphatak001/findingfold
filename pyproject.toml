@@ -29,4 +29,5 @@ findingfold = "findingfold.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/kphatak001/findingfold"
+Documentation = "https://github.com/kphatak001/findingfold/tree/main/docs"
 Issues = "https://github.com/kphatak001/findingfold/issues"
