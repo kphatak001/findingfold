@@ -1,0 +1,22 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "semgrep",
+          "rules": [
+            {"id": "python.lang.security.audit.exec-detected", "shortDescription": {"text": "Use of exec() detected"}, "fullDescription": {"text": "exec() can execute arbitrary code"}},
+            {"id": "python.lang.security.audit.eval-detected", "shortDescription": {"text": "Use of eval() detected"}, "fullDescription": {"text": "eval() can execute arbitrary code"}}
+          ]
+        }
+      },
+      "results": [
+        {"ruleId": "python.lang.security.audit.exec-detected", "level": "error", "message": {"text": "Use of exec() detected"}, "locations": [{"physicalLocation": {"artifactLocation": {"uri": "src/handler.py"}}}]},
+        {"ruleId": "python.lang.security.audit.exec-detected", "level": "error", "message": {"text": "Use of exec() detected"}, "locations": [{"physicalLocation": {"artifactLocation": {"uri": "src/utils.py"}}}]},
+        {"ruleId": "python.lang.security.audit.eval-detected", "level": "warning", "message": {"text": "Use of eval() detected"}, "locations": [{"physicalLocation": {"artifactLocation": {"uri": "src/parser.py"}}}]}
+      ]
+    }
+  ]
+}

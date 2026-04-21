@@ -1,0 +1,42 @@
+# License
+
+## Code (Source Files)
+
+Copyright (c) 2026 Kaustubh Phatak
+
+This software is provided for **personal, educational, and non-commercial use only**.
+
+You are free to:
+- **Use** — run the software for personal or internal evaluation purposes
+- **Study** — read, learn from, and reference the source code
+- **Modify** — create derivative works for personal or educational use
+- **Share** — redistribute the source code with this license intact
+
+Under the following restrictions:
+- **No Commercial Use** — You may not use this software, or any derivative work, for commercial purposes. Commercial purposes include, but are not limited to: selling the software, offering it as a paid service, incorporating it into a commercial product, or using it to generate revenue.
+- **Attribution** — You must give appropriate credit, provide a link to this repository, and indicate if changes were made.
+- **Same License** — If you redistribute or create derivative works, you must distribute them under this same license.
+
+**For commercial licensing inquiries, contact:** kphatak001 [at] github
+
+## Documentation (docs/, PAPER.md, README.md)
+
+Documentation and written content in this repository are licensed under
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+## Summary
+
+| What | License | Commercial Use |
+|---|---|---|
+| Source code | Non-Commercial Source License (above) | ❌ Not permitted |
+| Documentation | CC BY-NC-SA 4.0 | ❌ Not permitted |
+| Personal/educational use | Both | ✅ Permitted |
+| Attribution required | Both | ✅ Required |
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

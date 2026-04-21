@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "findingfold"
+version = "0.1.0"
+description = "Collapse security findings by root cause. 200 findings → 12 fixes."
+readme = "README.md"
+license = {text = "Non-Commercial Source License"}
+requires-python = ">=3.10"
+authors = [{name = "Kaustubh Phatak"}]
+keywords = ["security-hub", "aws", "security", "dedup", "findings", "vulnerability", "sarif"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Security",
+    "License :: Other/Proprietary License",
+    "Programming Language :: Python :: 3.10",
+]
+dependencies = []
+
+[project.optional-dependencies]
+aws = ["boto3>=1.28"]
+pretty = ["rich>=13.0"]
+
+[project.scripts]
+findingfold = "findingfold.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/kphatak001/findingfold"
+Issues = "https://github.com/kphatak001/findingfold/issues"

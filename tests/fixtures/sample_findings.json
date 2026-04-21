@@ -1,0 +1,120 @@
+{
+  "Findings": [
+    {
+      "Id": "finding-ami-1", "Title": "CVE-2026-1234 - vulnerable package openssl",
+      "GeneratorId": "aws/inspector", "AwsAccountId": "111122223333",
+      "Severity": {"Label": "CRITICAL", "Normalized": 90},
+      "RecordState": "ACTIVE", "Workflow": {"Status": "NEW"},
+      "ProductArn": "arn:aws:securityhub:us-east-1::product/aws/inspector",
+      "FirstObservedAt": "2026-02-15T10:00:00Z", "CreatedAt": "2026-02-15T10:00:00Z",
+      "Resources": [{"Type": "AwsEc2Instance", "Id": "arn:aws:ec2:us-east-1:111122223333:instance/i-0aaa111111111111a",
+        "Details": {"AwsEc2Instance": {"ImageId": "ami-0abc123def456789a", "InstanceId": "i-0aaa111111111111a"}}}]
+    },
+    {
+      "Id": "finding-ami-2", "Title": "CVE-2026-1234 - vulnerable package openssl",
+      "GeneratorId": "aws/inspector", "AwsAccountId": "111122223333",
+      "Severity": {"Label": "CRITICAL", "Normalized": 90},
+      "RecordState": "ACTIVE", "Workflow": {"Status": "NEW"},
+      "ProductArn": "arn:aws:securityhub:us-east-1::product/aws/inspector",
+      "FirstObservedAt": "2026-02-15T11:00:00Z", "CreatedAt": "2026-02-15T11:00:00Z",
+      "Resources": [{"Type": "AwsEc2Instance", "Id": "arn:aws:ec2:us-east-1:111122223333:instance/i-0bbb222222222222b",
+        "Details": {"AwsEc2Instance": {"ImageId": "ami-0abc123def456789a", "InstanceId": "i-0bbb222222222222b"}}}]
+    },
+    {
+      "Id": "finding-ami-3", "Title": "CVE-2026-1234 - vulnerable package openssl",
+      "GeneratorId": "aws/inspector", "AwsAccountId": "444455556666",
+      "Severity": {"Label": "CRITICAL", "Normalized": 90},
+      "RecordState": "ACTIVE", "Workflow": {"Status": "NEW"},
+      "ProductArn": "arn:aws:securityhub:us-west-2::product/aws/inspector",
+      "FirstObservedAt": "2026-02-16T10:00:00Z", "CreatedAt": "2026-02-16T10:00:00Z",
+      "Resources": [{"Type": "AwsEc2Instance", "Id": "arn:aws:ec2:us-west-2:444455556666:instance/i-0ccc333333333333c",
+        "Details": {"AwsEc2Instance": {"ImageId": "ami-0abc123def456789a", "InstanceId": "i-0ccc333333333333c"}}}]
+    },
+    {
+      "Id": "finding-cfn-1", "Title": "S3 bucket does not have encryption enabled",
+      "GeneratorId": "aws/config", "AwsAccountId": "111122223333",
+      "Severity": {"Label": "HIGH", "Normalized": 70},
+      "RecordState": "ACTIVE", "Workflow": {"Status": "NEW"},
+      "ProductArn": "arn:aws:securityhub:us-east-1::product/aws/config",
+      "FirstObservedAt": "2026-03-01T10:00:00Z", "CreatedAt": "2026-03-01T10:00:00Z",
+      "Resources": [{"Type": "AwsS3Bucket", "Id": "arn:aws:s3:::my-app-data-bucket",
+        "Tags": {"aws:cloudformation:stack-name": "payment-service", "aws:cloudformation:stack-id": "arn:aws:cloudformation:us-east-1:111122223333:stack/payment-service/abc123"}}]
+    },
+    {
+      "Id": "finding-cfn-2", "Title": "S3 bucket does not have logging enabled",
+      "GeneratorId": "aws/config", "AwsAccountId": "111122223333",
+      "Severity": {"Label": "MEDIUM", "Normalized": 40},
+      "RecordState": "ACTIVE", "Workflow": {"Status": "NEW"},
+      "ProductArn": "arn:aws:securityhub:us-east-1::product/aws/config",
+      "FirstObservedAt": "2026-03-01T10:00:00Z", "CreatedAt": "2026-03-01T10:00:00Z",
+      "Resources": [{"Type": "AwsS3Bucket", "Id": "arn:aws:s3:::my-app-logs-bucket",
+        "Tags": {"aws:cloudformation:stack-name": "payment-service"}}]
+    },
+    {
+      "Id": "finding-cfn-3", "Title": "Lambda function has overly permissive IAM role",
+      "GeneratorId": "aws/config", "AwsAccountId": "111122223333",
+      "Severity": {"Label": "HIGH", "Normalized": 70},
+      "RecordState": "ACTIVE", "Workflow": {"Status": "NEW"},
+      "ProductArn": "arn:aws:securityhub:us-east-1::product/aws/config",
+      "FirstObservedAt": "2026-03-01T10:00:00Z", "CreatedAt": "2026-03-01T10:00:00Z",
+      "Resources": [{"Type": "AwsLambdaFunction", "Id": "arn:aws:lambda:us-east-1:111122223333:function:payment-processor",
+        "Tags": {"aws:cloudformation:stack-name": "payment-service"}}]
+    },
+    {
+      "Id": "finding-tf-1", "Title": "Security group allows unrestricted SSH access",
+      "GeneratorId": "aws/config", "AwsAccountId": "111122223333",
+      "Severity": {"Label": "HIGH", "Normalized": 70},
+      "RecordState": "ACTIVE", "Workflow": {"Status": "NEW"},
+      "ProductArn": "arn:aws:securityhub:us-east-1::product/aws/config",
+      "FirstObservedAt": "2026-03-10T10:00:00Z", "CreatedAt": "2026-03-10T10:00:00Z",
+      "Resources": [{"Type": "AwsEc2SecurityGroup", "Id": "arn:aws:ec2:us-east-1:111122223333:security-group/sg-0aaa111",
+        "Tags": {"tf_module": "vpc-baseline"}}]
+    },
+    {
+      "Id": "finding-tf-2", "Title": "Security group allows unrestricted SSH access",
+      "GeneratorId": "aws/config", "AwsAccountId": "222233334444",
+      "Severity": {"Label": "HIGH", "Normalized": 70},
+      "RecordState": "ACTIVE", "Workflow": {"Status": "NEW"},
+      "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/config",
+      "FirstObservedAt": "2026-03-10T10:00:00Z", "CreatedAt": "2026-03-10T10:00:00Z",
+      "Resources": [{"Type": "AwsEc2SecurityGroup", "Id": "arn:aws:ec2:eu-west-1:222233334444:security-group/sg-0bbb222",
+        "Tags": {"tf_module": "vpc-baseline"}}]
+    },
+    {
+      "Id": "finding-gd-1", "Title": "UnauthorizedAccess:EC2/SSHBruteForce on i-0ddd444444444444d",
+      "GeneratorId": "aws/guardduty", "AwsAccountId": "111122223333",
+      "Severity": {"Label": "MEDIUM", "Normalized": 40},
+      "RecordState": "ACTIVE", "Workflow": {"Status": "NEW"},
+      "ProductArn": "arn:aws:securityhub:us-east-1::product/aws/guardduty",
+      "FirstObservedAt": "2026-04-01T10:00:00Z", "CreatedAt": "2026-04-01T10:00:00Z",
+      "Resources": [{"Type": "AwsEc2Instance", "Id": "arn:aws:ec2:us-east-1:111122223333:instance/i-0ddd444444444444d",
+        "Details": {"AwsEc2Instance": {"InstanceId": "i-0ddd444444444444d"}}}]
+    },
+    {
+      "Id": "finding-gd-2", "Title": "UnauthorizedAccess:EC2/SSHBruteForce on i-0eee555555555555e",
+      "GeneratorId": "aws/guardduty", "AwsAccountId": "111122223333",
+      "Severity": {"Label": "MEDIUM", "Normalized": 40},
+      "RecordState": "ACTIVE", "Workflow": {"Status": "NEW"},
+      "ProductArn": "arn:aws:securityhub:us-east-1::product/aws/guardduty",
+      "FirstObservedAt": "2026-04-01T11:00:00Z", "CreatedAt": "2026-04-01T11:00:00Z",
+      "Resources": [{"Type": "AwsEc2Instance", "Id": "arn:aws:ec2:us-east-1:111122223333:instance/i-0eee555555555555e",
+        "Details": {"AwsEc2Instance": {"InstanceId": "i-0eee555555555555e"}}}]
+    },
+    {
+      "Id": "finding-suppressed", "Title": "Some old finding",
+      "GeneratorId": "aws/config", "AwsAccountId": "111122223333",
+      "Severity": {"Label": "LOW", "Normalized": 1},
+      "RecordState": "ACTIVE", "Workflow": {"Status": "SUPPRESSED"},
+      "ProductArn": "arn:aws:securityhub:us-east-1::product/aws/config",
+      "Resources": [{"Type": "AwsS3Bucket", "Id": "arn:aws:s3:::old-bucket"}]
+    },
+    {
+      "Id": "finding-archived", "Title": "Archived finding",
+      "GeneratorId": "aws/config", "AwsAccountId": "111122223333",
+      "Severity": {"Label": "LOW", "Normalized": 1},
+      "RecordState": "ARCHIVED", "Workflow": {"Status": "RESOLVED"},
+      "ProductArn": "arn:aws:securityhub:us-east-1::product/aws/config",
+      "Resources": [{"Type": "AwsS3Bucket", "Id": "arn:aws:s3:::resolved-bucket"}]
+    }
+  ]
+}
