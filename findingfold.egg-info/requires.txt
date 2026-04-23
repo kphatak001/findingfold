@@ -1,6 +1,0 @@
-
-[aws]
-boto3>=1.28
-
-[pretty]
-rich>=13.0

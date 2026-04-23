@@ -222,6 +222,14 @@ pip install findingfold[mcp]
 >
 > **Agent:** Found 47 findings collapsed into 6 root causes (7.8x compression). The top issue is AMI ami-0abc123 with 12 findings across 3 accounts...
 
+## Pair with mcpfw
+
+[mcpfw](https://github.com/kphatak001/mcpfw) enforces policies on MCP tool calls. Wrap findingfold-mcp to control which findings data your agent can access:
+
+```bash
+mcpfw --policy policy.yaml -- findingfold-mcp
+```
+
 ## FAQ
 
 **How is this different from Security Hub's built-in grouping?**
