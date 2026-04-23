@@ -182,6 +182,46 @@ findingfold findings.json --format markdown -o report.md
 findingfold findings.json --format csv -o report.csv
 ```
 
+## MCP Server (Agent Plugin)
+
+findingfold ships as an MCP server so you can install it on any personal AI agent (Kiro, Claude Code, Cline, etc.) and fold findings conversationally.
+
+### Install
+
+```bash
+pip install findingfold[mcp]
+```
+
+### Add to your agent
+
+**Kiro / Claude Code / any MCP client:**
+
+```json
+{
+  "mcpServers": {
+    "findingfold": {
+      "command": "findingfold-mcp"
+    }
+  }
+}
+```
+
+### Available tools
+
+| Tool | Description |
+|------|-------------|
+| `fold_findings` | Fold a Security Hub JSON export by root cause |
+| `fold_sarif` | Fold a SARIF file (Semgrep, Snyk, Trivy, etc.) |
+| `fold_from_security_hub` | Pull live from Security Hub API and fold (requires boto3 + credentials) |
+
+### Example agent conversation
+
+> **You:** Fold my security findings at ~/exports/findings.json, only show HIGH and above
+>
+> **Agent** calls `fold_findings(file_path="~/exports/findings.json", min_severity="HIGH")`
+>
+> **Agent:** Found 47 findings collapsed into 6 root causes (7.8x compression). The top issue is AMI ami-0abc123 with 12 findings across 3 accounts...
+
 ## FAQ
 
 **How is this different from Security Hub's built-in grouping?**

@@ -23,9 +23,11 @@ dependencies = []
 [project.optional-dependencies]
 aws = ["boto3>=1.28"]
 pretty = ["rich>=13.0"]
+mcp = ["mcp[cli]>=1.0"]
 
 [project.scripts]
 findingfold = "findingfold.cli:main"
+findingfold-mcp = "findingfold.mcp_server:main"
 
 [project.urls]
 Homepage = "https://github.com/kphatak001/findingfold"
