@@ -123,6 +123,8 @@ Filtering:
   --min-group-size N         Only show groups with N+ findings (default: 2)
   --include-suppressed       Include SUPPRESSED findings
   --max-findings N           Limit ingested findings (default: 10000)
+  --filter-fp                LLM-powered false positive filter (before fold)
+  --fp-backend BACKEND       anthropic or openai (auto-detects from env)
 
 Grouping:
   --rules RULES              ami, cloudformation, iac, security_group, iam, title
@@ -165,6 +167,25 @@ findingfold --from-hub --enrich --region us-east-1
 ```
 
 This gives significantly better AMI grouping than raw JSON exports. Requires `ec2:DescribeInstances` permission.
+
+## False Positive Filter
+
+Use `--filter-fp` to run an LLM-powered false positive filter before folding. The LLM classifies each finding based on resource context, tags, severity, and common FP patterns (dev/test resources, informational findings, terminated instances).
+
+```bash
+# Filter FPs, then fold
+findingfold findings.json --filter-fp
+
+# With explicit backend
+findingfold findings.json --filter-fp --fp-backend anthropic
+
+# Verbose — see which findings were removed and why
+findingfold findings.json --filter-fp -v
+```
+
+The filter is **conservative** — when in doubt, findings are kept. Requires `ANTHROPIC_API_KEY` or `OPENAI_API_KEY`. Findings are sent in batches of 20 to minimize LLM calls.
+
+Pipeline order: **ingest → filter → enrich → FP filter → fold → report**
 
 ## Output Formats
 

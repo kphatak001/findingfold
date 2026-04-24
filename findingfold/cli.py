@@ -36,6 +36,10 @@ def main():
     parser.add_argument("--include-suppressed", action="store_true", help="Include SUPPRESSED findings")
     parser.add_argument("--enrich", action="store_true",
                         help="Enrich findings with AWS API data (backfill AMI IDs, etc.)")
+    parser.add_argument("--filter-fp", action="store_true",
+                        help="Use LLM to filter likely false positives before folding (requires anthropic or openai)")
+    parser.add_argument("--fp-backend", choices=["anthropic", "openai"],
+                        help="LLM backend for --filter-fp (auto-detects from env if omitted)")
     parser.add_argument("--explain", action="store_true",
                         help="Show why each finding was grouped where it was")
     parser.add_argument("-v", "--verbose", action="store_true", help="Show individual findings within groups")
@@ -70,6 +74,15 @@ def main():
     if args.enrich:
         from .enrich import enrich_ami_ids
         findings = enrich_ami_ids(findings, region=args.region)
+
+    # Filter false positives (before fold)
+    fp_removed = []
+    if args.filter_fp:
+        from .fp_filter import filter_false_positives
+        findings, fp_removed = filter_false_positives(
+            findings, backend=args.fp_backend, verbose=args.verbose)
+        print(f"FP filter: {len(fp_removed)} likely false positives removed, "
+              f"{len(findings)} findings remaining.", file=sys.stderr)
 
     # Fold
     rules = None if args.rules == "all" else args.rules.split(",")
